@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #666;
+}
+.container {
+  width: 94%;
+  border: 1px solid #333;
+  padding: 0;
+  margin: 2rem auto;
+  border-radius: 0.8rem;
+}
+.title {
+  font-size: 1.5rem;
+  padding: 1rem;
+  background-color: #333;
+  color: #ccc;
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+.h2-title {
+  font-size: 1.2rem;
+  padding: 1rem;
+  background-color: #333;
+  color: #ccc;
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+small {
+  font-size: 0.8rem;
+}
+#quiz-form,
+.content {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+.question {
+  margin: 20px 0;
+}
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
+}
+.correct {
+  background-color: lightgreen;
+}
+.incorrect {
+  background-color: lightcoral;
+}
+button {
+  margin-top: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #333;
+  border: 0;
+  border-radius: 0.4rem;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: #222;
+  }
+}
+
+label {
+  padding: 0.8rem;
+  background-color: #efefef;
+  margin-top: 1rem;
+  display: block;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.project-content {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.prompt {
+  background-color: #efefef;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+
+.link,
+.link:focus,
+.link:visited {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #222;
+}

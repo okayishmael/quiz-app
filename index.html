@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+
+        .question {
+            margin: 20px 0;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .correct {
+            background-color: lightgreen;
+        }
+
+        .incorrect {
+            background-color: lightcoral;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>AI Version</h1>
+    <form id="quiz-form">
+        <div id="question-container"></div>
+        <button type="button" id="next-button" class="hidden">Next Question</button>
+        <div id="result" class="result hidden"></div>
+    </form>
+    <br><br>
+    <a href="style.html" class="link">See my Version</a>
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                answers: { A: "Berlin", B: "Paris", C: "Madrid" },
+                correct: "B"
+            },
+            {
+                question: "Who wrote 'Hamlet'?",
+                answers: { A: "Charles Dickens", B: "William Shakespeare", C: "Leo Tolstoy" },
+                correct: "B"
+            },
+            {
+                question: "What is the largest planet in our Solar System?",
+                answers: { A: "Earth", B: "Jupiter", C: "Saturn" },
+                correct: "B"
+            },
+            {
+                question: "What is the chemical symbol for water?",
+                answers: { A: "O2", B: "H2O", C: "CO2" },
+                correct: "B"
+            },
+            {
+                question: "Who painted the Mona Lisa?",
+                answers: { A: "Vincent Van Gogh", B: "Pablo Picasso", C: "Leonardo da Vinci" },
+                correct: "C"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionContainer = document.getElementById("question-container");
+            questionContainer.innerHTML = "";
+
+            const currentQuestion = questions[currentQuestionIndex];
+            const questionElement = document.createElement("div");
+            questionElement.className = "question";
+
+            questionElement.innerHTML = `<p>${currentQuestionIndex + 1}. ${currentQuestion.question}</p>`;
+            for (const [key, value] of Object.entries(currentQuestion.answers)) {
+                questionElement.innerHTML += `
+                    <label>
+                        <input type="radio" name="answer" value="${key}">
+                        ${key}) ${value}
+                    </label><br>
+                `;
+            }
+
+            questionContainer.appendChild(questionElement);
+        }
+
+        function validateAnswer(selectedAnswer) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const correctAnswer = currentQuestion.correct;
+
+            if (selectedAnswer === correctAnswer) {
+                score++;
+                highlightAnswer(selectedAnswer, true);
+            } else {
+                highlightAnswer(selectedAnswer, false);
+                highlightAnswer(correctAnswer, true);
+            }
+
+            // Show the next button
+            document.getElementById("next-button").classList.remove("hidden");
+        }
+
+        function highlightAnswer(answer, isCorrect) {
+            const labels = document.querySelectorAll(`input[name="answer"]`);
+            labels.forEach(label => {
+                if (label.value === answer) {
+                    label.parentElement.classList.add(isCorrect ? "correct" : "incorrect");
+                }
+            });
+        }
+
+        document.getElementById("quiz-form").addEventListener("change", (e) => {
+            if (e.target.name === "answer") {
+                validateAnswer(e.target.value);
+                // Disable further selection until the answer is validated
+                document.querySelectorAll('input[name="answer"]').forEach(input => {
+                    input.disabled = true;
+                });
+            }
+        });
+
+        document.getElementById("next-button").addEventListener("click", () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+                document.getElementById("next-button").classList.add("hidden");
+            } else {
+                displayResult();
+            }
+        });
+
+        function displayResult() {
+            const resultDiv = document.getElementById("result");
+            resultDiv.textContent = `Your total score is ${score} out of ${questions.length}.`;
+            resultDiv.classList.remove("hidden");
+            document.getElementById("question-container").classList.add("hidden");
+            document.getElementById("next-button").classList.add("hidden");
+        }
+
+        // Load the first question
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>
