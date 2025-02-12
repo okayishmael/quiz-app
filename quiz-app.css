@@ -98,3 +98,8 @@ label {
   font-weight: 700;
   color: #222;
 }
+@media (min-width: 578px) {
+  .container {
+    max-width: 500px;
+  }
+}
