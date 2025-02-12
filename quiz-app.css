@@ -11,41 +11,46 @@ body {
   padding: 0;
   background-color: #666;
 }
+
+/* Containers styles */
 .container {
   width: 94%;
+  max-width: 31.25rem;
   border: 1px solid #333;
   padding: 0;
   margin: 2rem auto;
   border-radius: 0.8rem;
 }
-.title {
-  font-size: 1.5rem;
+/* Header styles */
+.h1-title,
+.h2-title {
   padding: 1rem;
   background-color: #333;
   color: #ccc;
   border-radius: 0.8rem 0.8rem 0 0;
 }
+
+.h1-title {
+  font-size: 1.5rem;
+}
 .h2-title {
   font-size: 1.2rem;
-  padding: 1rem;
-  background-color: #333;
-  color: #ccc;
-  border-radius: 0.8rem 0.8rem 0 0;
 }
 small {
   font-size: 0.8rem;
 }
-#quiz-form,
+
+/*  form content styles */
 .content {
   padding: 1rem;
   background-color: #fff;
   border-radius: 0 0 0.8rem 0.8rem;
 }
 .question {
-  margin: 20px 0;
+  margin: 1.2rem 0;
 }
 .result {
-  margin-top: 20px;
+  margin-top: 1.2rem;
   font-weight: bold;
 }
 .hidden {
@@ -58,7 +63,7 @@ small {
   background-color: lightcoral;
 }
 button {
-  margin-top: 10px;
+  margin-top: 0.675rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: #333;
@@ -80,7 +85,8 @@ label {
   border-radius: 0.5rem;
   font-size: 1rem;
 }
-.project-content {
+/* Paragraph styles */
+.p-content {
   font-size: 1rem;
   margin-bottom: 1.25rem;
 }
@@ -97,9 +103,4 @@ label {
   margin-top: 1rem;
   font-weight: 700;
   color: #222;
-}
-@media (min-width: 578px) {
-  .container {
-    max-width: 500px;
-  }
 }
