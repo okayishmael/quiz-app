@@ -49,11 +49,13 @@ small {
 .question {
   margin: 1.2rem 0;
 }
-.result {
+.result,
+.result2 {
   margin-top: 1.2rem;
   font-weight: bold;
 }
-.hidden {
+.hidden,
+.hidden2 {
   display: none;
 }
 .correct {
