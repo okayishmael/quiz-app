@@ -87,7 +87,7 @@ function validateAnswer(selectedAnswer) {
   }
 
   // Show the next button
-  document.getElementById("next-button2").classList.remove("hidden2");
+  document.getElementById("next-button").classList.remove("hidden2");
 }
 
 //Highlight both correct answer and incorrect answers
@@ -111,11 +111,11 @@ document.getElementById("quiz-form2").addEventListener("change", (e) => {
 });
 
 //show "next button" after an answer is selected until the last question
-document.getElementById("next-button2").addEventListener("click", () => {
+document.getElementById("next-button").addEventListener("click", () => {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     loadQuestion();
-    document.getElementById("next-button2").classList.add("hidden2");
+    document.getElementById("next-button").classList.add("hidden");
   } else {
     displayResult();
   }
@@ -123,11 +123,11 @@ document.getElementById("next-button2").addEventListener("click", () => {
 
 // Show final test result
 function displayResult() {
-  const resultDiv = document.getElementById("result2");
+  const resultDiv = document.getElementById("result");
   resultDiv.textContent = `Your total score is ${score} out of ${questions.length}.`;
-  resultDiv.classList.remove("hidden2");
-  document.getElementById("question-container2").classList.add("hidden2");
-  document.getElementById("next-button2").classList.add("hidden2");
+  resultDiv.classList.remove("hidden");
+  document.getElementById("question-container2").classList.add("hidden");
+  document.getElementById("next-button").classList.add("hidden");
 }
 
 // Load the first question
