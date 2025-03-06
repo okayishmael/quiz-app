@@ -50,18 +50,24 @@ small {
   margin: 1.2rem 0;
 }
 .result,
-.result2 {
+.result2,
+.result-sci {
   margin-top: 1.2rem;
   font-weight: bold;
 }
 .hidden,
-.hidden2 {
+.hidden2,
+.hidden-sci {
   display: none;
 }
-.correct {
+.correct,
+.mathcorrect,
+.correct-sci {
   background-color: lightgreen;
 }
-.incorrect {
+.incorrect,
+.mathincorrect,
+.incorrect-sci {
   background-color: lightcoral;
 }
 button {
